@@ -4,7 +4,7 @@ import editorialHero from './assets/editorial-hero.png'
 document.querySelector('#app').innerHTML = `
   <header class="site-header" aria-label="Encabezado principal">
     <a class="brand" href="#inicio" aria-label="Los mecanismos invisibles">
-      <span class="brand-mark"></span>
+      <img class="brand-logo" src="/logo.jpeg" alt="" aria-hidden="true" />
       <span>Los mecanismos invisibles</span>
     </a>
     <nav class="site-nav" aria-label="Navegacion principal">
