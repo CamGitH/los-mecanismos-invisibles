@@ -6,7 +6,7 @@ Estas instrucciones aplican a todo el proyecto `Los mecanismos invisibles`.
 
 ## Proyecto
 
-Sitio web vanilla con Vite para un medio editorial de pensamiento. La identidad central debe seguir el `README.md`.
+Sitio web estático vanilla con Vite para un medio editorial de pensamiento, sin framework. La identidad central debe seguir el `README.md`.
 
 ## Comandos
 
@@ -43,4 +43,6 @@ No agregar dependencias nuevas salvo que sean necesarias para la tarea.
 - No exponer secretos ni credenciales.
 - Usar variables de entorno para cualquier credencial futura.
 - Antes de cambiar dependencias, explicar la razon.
-- Verificar con `npm run build` cuando se modifique codigo de produccion.
+- Verificar con 
+pm run build cuando se modifique codigo de produccion.
+

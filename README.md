@@ -120,27 +120,26 @@ Todos los ensayos están firmados por **Ninan**. No como un personaje, sino como
 
 ## El sitio web
 
-Sitio estático construido con [Vite](https://vitejs.dev/) y JavaScript vanilla, sin frameworks.
+Sitio estático construido con Vite y JavaScript vanilla, sin framework.
 
 ### Comandos
 
 ```bash
 npm install      # instalar dependencias
 npm run dev      # servidor de desarrollo
-npm run build    # build de producción (genera dist/)
+npm run build    # build de producción
 npm run preview  # previsualizar el build
 ```
 
 ### Estructura
 
 ```text
-index.html      # punto de entrada
-src/main.js     # todo el marcado de la página se genera aquí
-src/style.css   # estilos globales; la paleta vive en las variables de :root
-src/assets/     # imágenes del sitio
-public/         # favicon e íconos estáticos
-ensayos/        # textos reales de los ensayos (Markdown)
-dist/           # salida del build; no editar a mano
+index.html                    # entrada HTML de Vite
+src/main.js                   # marcado principal de la página
+src/style.css                 # estilos globales; la paleta vive en las variables de :root
+src/assets/editorial-hero.png # imagen principal del sitio
+public/favicon.svg            # favicon propio del proyecto
+ensayos/                      # textos reales de los ensayos (Markdown)
 ```
 
 ### Ensayos
