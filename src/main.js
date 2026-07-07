@@ -1,5 +1,68 @@
 import './style.css'
 import editorialHero from './assets/editorial-hero.png'
+import { essays } from './generated/essays.js'
+
+const escapeHtml = (value) =>
+  value.replace(/[&<>"']/g, (char) => {
+    const entities = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    }
+
+    return entities[char]
+  })
+
+const renderEssayCards = () =>
+  essays
+    .map(
+      (essay, index) => `
+        <button class="essay-card${index === 0 ? ' is-active' : ''}" type="button" data-essay-id="${escapeHtml(essay.id)}">
+          <span class="essay-card-label">Ensayo ${String(index + 1).padStart(2, '0')}</span>
+          <strong>${escapeHtml(essay.title)}</strong>
+          ${essay.excerpt ? `<span>${escapeHtml(essay.excerpt)}</span>` : ''}
+        </button>
+      `,
+    )
+    .join('')
+
+const renderEssayArticle = (essay) => `
+  <article class="essay-reader" aria-labelledby="reader-title">
+    <p class="essay-reader-label">Ensayo</p>
+    <h3 id="reader-title">${escapeHtml(essay.title)}</h3>
+    <div class="essay-body">
+      ${essay.html}
+    </div>
+  </article>
+`
+
+const renderEssaysSection = () => {
+  if (essays.length === 0) {
+    return `
+      <div class="essay-empty">
+        <p class="essay-empty-label">Pendiente</p>
+        <h3>No hay ensayos publicados todavia.</h3>
+        <p>
+          Sube los textos reales a <code>ensayos/</code>. La pagina no debe inventar titulos,
+          preguntas ni fragmentos de ensayos.
+        </p>
+      </div>
+    `
+  }
+
+  return `
+    <div class="essays-layout">
+      <div class="essay-list" aria-label="Ensayos disponibles">
+        ${renderEssayCards()}
+      </div>
+      <div data-essay-reader>
+        ${renderEssayArticle(essays[0])}
+      </div>
+    </div>
+  `
+}
 
 document.querySelector('#app').innerHTML = `
   <header class="site-header" aria-label="Encabezado principal">
@@ -46,19 +109,11 @@ document.querySelector('#app').innerHTML = `
       <div class="section-heading">
         <div>
           <p class="section-kicker">Archivo de ensayos</p>
-          <h2 id="essays-title">Los ensayos apareceran aqui cuando esten listos.</h2>
+          <h2 id="essays-title">${essays.length > 0 ? 'Ensayos publicados' : 'Los ensayos apareceran aqui cuando esten listos.'}</h2>
         </div>
-        <p>Este espacio queda reservado para textos reales subidos en la carpeta <code>ensayos/</code>.</p>
       </div>
 
-      <div class="essay-empty">
-        <p class="essay-empty-label">Pendiente</p>
-        <h3>No hay ensayos publicados todavia.</h3>
-        <p>
-          Sube los textos reales a <code>ensayos/</code>. La pagina no debe inventar titulos,
-          preguntas ni fragmentos de ensayos.
-        </p>
-      </div>
+      ${renderEssaysSection()}
     </section>
 
     <section class="method-section" id="metodo" aria-labelledby="method-title">
@@ -106,3 +161,23 @@ document.querySelector('#app').innerHTML = `
   </footer>
 `
 
+const essayReader = document.querySelector('[data-essay-reader]')
+const essayCards = [...document.querySelectorAll('[data-essay-id]')]
+
+essayCards.forEach((card) => {
+  card.addEventListener('click', () => {
+    const essay = essays.find((item) => item.id === card.dataset.essayId)
+    if (!essay || !essayReader) {
+      return
+    }
+
+    essayReader.innerHTML = renderEssayArticle(essay)
+    essayCards.forEach((item) => item.classList.toggle('is-active', item === card))
+  })
+})
+
+if (window.location.hash) {
+  window.requestAnimationFrame(() => {
+    document.querySelector(window.location.hash)?.scrollIntoView()
+  })
+}

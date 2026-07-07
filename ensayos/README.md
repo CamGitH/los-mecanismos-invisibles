@@ -6,21 +6,11 @@ No usar esta carpeta para textos ficticios, pruebas editoriales o contenido inve
 
 ## Formato recomendado
 
-Usar un archivo Markdown por ensayo:
+Usar un archivo DOCX por ensayo:
 
 ```text
-nombre-del-ensayo.md
+nombre-del-ensayo.docx
 ```
 
-Estructura sugerida:
-
-```markdown
-# Titulo del ensayo
-
-Pregunta central: ...
-Tema: ...
-Fecha: YYYY-MM-DD
-Firma: Ninan
-
-Texto del ensayo...
-```
+La pagina convierte los DOCX a HTML durante `npm run dev` y `npm run build`.
+El primer titulo con estilo de encabezado se usa como titulo visible del ensayo.

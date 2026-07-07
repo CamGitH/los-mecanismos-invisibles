@@ -138,12 +138,15 @@ index.html                    # entrada HTML de Vite
 src/main.js                   # marcado principal de la página
 src/style.css                 # estilos globales; la paleta vive en las variables de :root
 src/assets/editorial-hero.png # imagen principal del sitio
-public/favicon.svg            # favicon propio del proyecto
-ensayos/                      # textos reales de los ensayos (Markdown)
+public/logo.jpeg              # logo y favicon del proyecto
+ensayos/                      # textos reales de los ensayos (DOCX)
+scripts/build-essays.js       # convierte DOCX a HTML para la página
 ```
 
 ### Ensayos
 
-Los ensayos reales se guardan en la carpeta [`ensayos/`](ensayos/README.md), un archivo Markdown por ensayo.
+Los ensayos reales se guardan en la carpeta [`ensayos/`](ensayos/README.md), un archivo DOCX por ensayo.
+
+Durante `npm run dev` y `npm run build`, los DOCX se convierten a HTML y se publican en la página.
 
 **Regla central:** no se deben inventar títulos, preguntas, fragmentos ni contenidos de ensayos para llenar la página. Si todavía no existe un ensayo real, la interfaz debe mostrar un estado pendiente o reservado.
