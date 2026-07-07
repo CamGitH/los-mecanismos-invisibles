@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Base inicial para una landing page."
+    />
+    <title>Landing Base</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Inicio">Landing Base</a>
+      <nav class="site-nav" aria-label="Navegacion principal">
+        <a href="#beneficios">Beneficios</a>
+        <a href="#contenido">Contenido</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Base inicial</p>
+          <h1>Una landing lista para tomar forma</h1>
+          <p>
+            Estructura preparada para adaptar mensaje, marca, secciones y
+            llamados a la accion en el siguiente paso.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contacto">Accion principal</a>
+            <a class="button button-secondary" href="#contenido">Ver secciones</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="beneficios">
+        <div class="section-heading">
+          <p class="eyebrow">Beneficios</p>
+          <h2>Bloques base para destacar valor</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true"></span>
+            <h3>Beneficio uno</h3>
+            <p>Espacio para explicar el primer punto fuerte de la propuesta.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true"></span>
+            <h3>Beneficio dos</h3>
+            <p>Espacio para reforzar diferenciadores o resultados esperados.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true"></span>
+            <h3>Beneficio tres</h3>
+            <p>Espacio para cerrar con una ventaja clara para el usuario.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split-section" id="contenido">
+        <div>
+          <p class="eyebrow">Contenido</p>
+          <h2>Seccion flexible para explicar la oferta</h2>
+        </div>
+        <p>
+          Este bloque puede convertirse en historia de marca, detalle del
+          producto, servicios, portafolio o prueba social segun el tema final.
+        </p>
+      </section>
+
+      <section class="section cta-section" id="contacto">
+        <p class="eyebrow">Contacto</p>
+        <h2>Listo para conectar con la accion final</h2>
+        <form class="contact-form">
+          <label>
+            Nombre
+            <input type="text" name="name" placeholder="Tu nombre" />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="tu@email.com" />
+          </label>
+          <button class="button button-primary" type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Landing Base</p>
+      <p>Lista para personalizar.</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
